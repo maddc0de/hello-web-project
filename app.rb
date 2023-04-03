@@ -14,9 +14,7 @@ class Application < Sinatra::Base  #makes application a subclass of Sinatra::Bas
   # end
 
   get '/names' do
-    name1 = params[:name1]
-    name2 = params[:name2]
-    name3 = params[:name3]
+    name1, name2, name3 = params[:name1], params[:name2], [:name3]
 
     return "#{name1}, #{name2}, #{name3}"
   end
