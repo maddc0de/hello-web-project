@@ -1,9 +1,13 @@
 require 'sinatra/base'
+require 'sinatra/reloader'
 
-class Application < Sinatra::Base  #makes application a subclass of Sinatra::Base class provided by Sinatra: application inherits all methods and features from sinatra::base class
+class Application < Sinatra::Base  #makes Application a subclass of Sinatra::Base class provided by Sinatra: Application inherits all methods and features from sinatra::base class
+  get '/' do
+    return 'Hello'
+  end
+  
   get '/hello' do
-		name = params[:name]
-		return "Hello #{name}"
+		return erb(:index)
   end
 
   post '/submit' do
@@ -24,6 +28,5 @@ class Application < Sinatra::Base  #makes application a subclass of Sinatra::Bas
 
     names.split(",").sort!.join(",")
   end
-
 
 end
